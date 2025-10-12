@@ -7,8 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+Route::get('/reports', 
+[ReportController::class, 'index'])
+->name('reports.index');
 
 Route::get('/reports/create', function () {
     return view('report.create');
-})->name('report.create');
+})->name('reports.create');

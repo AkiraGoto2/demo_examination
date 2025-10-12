@@ -9,3 +9,12 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+.card{
+	border: 1px solid black;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	margin: 2%;
+	padding: 1%;
+}

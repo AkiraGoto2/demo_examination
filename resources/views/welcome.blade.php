@@ -20,6 +20,6 @@
         @endif
     </head>
     <body>
-        
+        <a href="{{route ('reports')}}">aaaaa</a>
     </body>
 </html>
