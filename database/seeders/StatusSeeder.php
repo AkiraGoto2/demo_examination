@@ -20,9 +20,9 @@ class StatusSeeder extends Seeder
                 'name'=>"Потверждено"
             ],
             [
-                'name'=>"Октлонено"
-            ],
+                'name'=>"Отклонено"
+            ]
         ]
-      ) ; 
+      ); 
     }
 }
