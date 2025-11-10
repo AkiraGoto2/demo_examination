@@ -33,7 +33,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/reports/{report}',[ReportController::class, 'destroy'])->name('reports.destroy');
 });
 
+Route::middleware((Admin::class))->group(function(){
 
+    Route::get('/admin', function (){ return view('admin.index');})->name('admin.index');
+    
+});
 
 
 require __DIR__.'/auth.php';
