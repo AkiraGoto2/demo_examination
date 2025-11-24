@@ -32,7 +32,7 @@
                 <tr>
                     <td> <a href="{{route('reports.show',$report->id)}}"> {{ $report->number }}</a></td>
                     <td>{{ $report->description }}</td>
-                    <td>{{ $report->created_at->format('d.m.Y H:i') }}</td>
+                    <td>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->translatedFormat('j F Y h:i') }}</td>
 					<td>{{ $report->status->name}}</td>
                 </tr>
             <form method="POST" action="{{route('reports.destroy', $report->id)}}">

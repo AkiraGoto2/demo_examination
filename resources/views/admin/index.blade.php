@@ -13,6 +13,7 @@
             <thead>
                 <tr>
                     <th>Имя</th>
+                    <th>Номер</th>
                     <th>Описание</th>
                     <th>Дата</th>
                     <th>Статус</th>
@@ -23,8 +24,10 @@
                 @foreach ($reports as $report)
                     <tr>
                         <td>{{ $report->user->name }}</td>
+                        <td> <a href="{{route('reports.show',$report->id)}}"> {{ $report->number }}</a></td>
                         <td>{{ $report->description }}</td>
-                        <td>{{ $report->created_at->format('d.m.Y H:i') }}</td>
+                        <td>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->translatedFormat('j F Y h:i') }}</td>
+                        <!-- <td>{{ $report->created_at->format('d.m.Y H:i') }}</td> -->
                         <td>
                             <div>
                                 <form class="status-form" action="{{route('reports.status.update', $report->id)}}" method="POST">
