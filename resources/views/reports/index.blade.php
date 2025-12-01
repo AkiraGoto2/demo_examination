@@ -4,36 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+	    @include('layouts.flash-messages')
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 	<x-app-layout>
-    <a href="{{route ('reports.create')}}">Создать</a>
-
-	<div>
-		<span>Сортировка по дате создания</span> <br>
-		<a href="{{ route ('reports.index', ['sort' => 'desc', 'status' => $status]) }}">Сначало новые</a>
-		<a href="{{ route ('reports.index', ['sort' => 'asc', 'status' => $status]) }}">Сначало старые</a>
-	</div>
-	<div>
-		<span>Фильтрация по статусу заявки</span> <br>
-		<ul>
-			@foreach($statuses as $status)
-			<li>
-				<a href="{{route('reports.index', ['sort'=>$sort, 'status' => $status->id]) }}">
-					{{$status->name}}
-				</a>
-			</li>
-			@endforeach
-		</ul>
-	</div>
+        
+    <header class="flex  items-center gap-4 p-4 rounded-xl space-between">
+    
+            <a href="{{ route('reports.create') }}" class="px-5 py-3 bg-red-600 text-white font-bold text-lg rounded-xl hover:bg-red-700 transition">Создать</a>
+            <div class="flex-grow">
+                <x-filter :sort=$sort :status=$status></x-filter>
+            </div>
+        </header>
+    
+	
      @foreach ($reports as $report)
 	 <div class="card">
                 <tr>
                     <td> <a href="{{route('reports.show',$report->id)}}"> {{ $report->number }}</a></td>
                     <td>{{ $report->description }}</td>
                     <td>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->translatedFormat('j F Y h:i') }}</td>
-					<td>{{ $report->status->name}}</td>
+					<td>
+						<x-status :type="$report->status->id">
+							{{ $report->status->name}}
+						</x-status>
+					</td>
                 </tr>
             <form method="POST" action="{{route('reports.destroy', $report->id)}}">
                 @method('delete')

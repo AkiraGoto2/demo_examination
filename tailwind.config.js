@@ -14,6 +14,8 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+
+                calibri: ['"M PLUS Rounded 1c"', 'sans-serif'],
             },
         },
     },

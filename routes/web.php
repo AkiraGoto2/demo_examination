@@ -13,10 +13,13 @@ Route::get('/', function () {
 Route::get('/dashboard', function () { return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware((Admin::class))->group(function(){ 
+
     Route::get('/admin',[AdminController::class,'index'])->name('admin.index');});
+
     Route::patch('/reports/status/{report}/', [ReportController::class,'statusUpdate'])->name('reports.status.update');
 
 Route::middleware('auth')->group(function () {
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -37,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 
     Route::delete('/reports/{report}',[ReportController::class, 'destroy'])->name('reports.destroy');
+
+    
 });
 
 
