@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,12 +19,14 @@ class ReportFactory extends Factory
 
     public function definition(): array
     {
-        $faker = \Faker\Factory::create();
+        $userIds = User::pluck('id')->toArray();
+        
         return [
-            'number' => $faker->numerify('aaa-###'),
-            'description' => $faker->paragraph,
-            'created_at' => $faker->dateTimeBetween('-1 week', 'now'),
-            'status_id' => $faker->numberBetween(1, 3),
+            'number' => $this->faker->numerify('aaa-###'),
+            'description' => $this->faker->paragraph,
+            'created_at' => $this->faker->dateTimeBetween('-1 week', 'now'),
+            'status_id' => $this->faker->numberBetween(1, 3),
+            'user_id' => $this->faker->randomElement($userIds)
         ];
     }
 }

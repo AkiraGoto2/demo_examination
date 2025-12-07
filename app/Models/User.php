@@ -60,4 +60,9 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->role === self::ADMIN_ROLE;
     }
+
+	 public static function getUserIds()
+    {
+        return User::pluck('id')->toArray();
+    }
 }
