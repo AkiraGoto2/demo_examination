@@ -18,13 +18,13 @@
                 
                 <div>
                     <label class="block text-lg font-medium text-gray-700 mb-2">Номер заявки</label>
-                    <input type="text" name="number" value="{{ $report->number }}" 
+                    <input type="text" name="number" value="{{ $report->number }}"  required autofocus
                            class="w-full border rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 
                 <div>
                     <label class="block text-lg font-medium text-gray-700 mb-2">Описание</label>
-                    <textarea name="description" rows="6"
+                    <textarea name="description" rows="6" required autofocus
                               class="w-full border rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500">{{ $report->description }}</textarea>
                 </div>
                 

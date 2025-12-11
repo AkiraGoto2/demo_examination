@@ -17,13 +17,13 @@
                 
                 <div>
                     <label class="block text-lg font-medium text-gray-700 mb-2">Номер машины</label>
-                    <input type="text" name="number" placeholder="Введите номер" 
+                    <input type="text" name="number" placeholder="Введите номер" required autofocus
                            class="w-full border rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 
                 <div>
                     <label class="block text-lg font-medium text-gray-700 mb-2">Описание нарушения</label>
-                    <textarea name="description" rows="6" placeholder="Опишите нарушение ПДД"
+                    <textarea name="description" rows="6" placeholder="Опишите нарушение ПДД" required autofocus
                               class="w-full border rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                 </div>
                 

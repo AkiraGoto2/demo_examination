@@ -6,9 +6,9 @@ use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Admin;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () { return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
 
-    Route::get('/reports',[ReportController::class, 'index'])->name('reports.index');
+    Route::get('/',[ReportController::class, 'index'])->name('reports.index');
 
     Route::get('/reports/create', function () { return view('reports.create'); })->name('reports.create');
 
