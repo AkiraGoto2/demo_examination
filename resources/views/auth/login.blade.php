@@ -4,7 +4,7 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-        <h1 class="text-[#051AFF] text-3xl font-calibri mb-2">Авторизация</h1>
+        <h1 class="text-[#051AFF] text-3xl sm:text-4xl md:text-5xl font-calibri mb-2"> Авторизация</h1>
         <!-- Login Address -->
         <div>
             <x-input-label for="login" :value="__('Логин')" />
@@ -28,23 +28,18 @@
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                <span class="ms-2 text-sm text-gray-600">{{ __('Запомнить меня') }}</span>
             </label>
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
+            
             <a class="underline mx-8 text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
                 {{ __('Зарегистрироваться') }}
             </a>
 
             <x-primary-button class="ms-3">
-                {{ __('Log in') }}
+                {{ __('Войти') }}
             </x-primary-button>
         </div>
     </form>

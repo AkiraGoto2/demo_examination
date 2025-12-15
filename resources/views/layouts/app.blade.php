@@ -33,7 +33,7 @@
             @endisset
 
             <!-- Page Content -->
-           <main class="mt-5 mx-4 sm:mx-10 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[18%]">
+           <main class="mt-5 mx-4 sm:mx-0 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[18%]">
                 {{ $slot }}
             </main>
         </div>

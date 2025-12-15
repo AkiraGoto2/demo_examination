@@ -11,7 +11,7 @@ class AdminController extends Controller
     public function index(Request $request){
 
         $reports = Report::with(['user', 'status'])
-        ->paginate(10);
+        ->paginate(6);
 
         $statuses = Status::all();
 
